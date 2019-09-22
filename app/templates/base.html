@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block sub_title %}{% endblock %} - 影音平台API</title>
+    <link rel="short icon"
+          href="{{ url_for('static', filename='images/favicon.ico', type='image/x-icon', _external=True) }}">
+    <link rel="icon"
+          href="{{ url_for('static', filename='images/favicon.ico', type='image/x-icon', _external=True) }}">
+    {% block styles %}{% endblock %}
+</head>
+<body>
+{% block content %}{% endblock %}
+{% block scripts %}{% endblock %}
+</body>
+</html>
