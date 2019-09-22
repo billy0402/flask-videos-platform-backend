@@ -3,8 +3,8 @@ import os
 import click
 from flask_migrate import Migrate
 
-from app import create_app
-from app.models import *
+from app import create_app, db
+from app.models.user_models import User
 
 app = create_app(os.getenv('FLASK_CONFIG', 'default'))
 migrate = Migrate(app, db)
@@ -12,7 +12,7 @@ migrate = Migrate(app, db)
 
 @app.shell_context_processor
 def make_shell_context():
-    return dict(db=db)
+    return dict(db=db, User=User)
 
 
 @app.cli.command()

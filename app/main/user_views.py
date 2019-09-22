@@ -2,7 +2,8 @@ from flask import request
 from flask_restful import Resource
 from sqlalchemy.exc import SQLAlchemyError
 
-from ..models import *
+from .. import db
+from ..models.user_models import User
 from ..response_handler import ResponseHandler
 
 
