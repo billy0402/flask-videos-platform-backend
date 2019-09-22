@@ -9,6 +9,8 @@ verify_ssl = true
 flask = "*"
 flask-sqlalchemy = "*"
 flask-migrate = "*"
+gunicorn = "*"
+psycopg2 = "==2.7.7"
 
 [requires]
 python_version = "3.7"
