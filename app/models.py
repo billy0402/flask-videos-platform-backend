@@ -1,11 +1,29 @@
 from . import db
 
 
-# class User(db.Model):
-#     __tablename__ = 'users'
-#     id = db.Column(db.Integer, primary_key=True)
-#     username = db.Column(db.String(64), unique=True, index=True)
-#     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
-#
-#     def __repr__(self):
-#         return f'<User {self.username!r}>'
+class BaseModel(db.Model):
+    __abstract__ = True
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    create_at = db.Column(db.TIMESTAMP, server_default=db.func.now())
+    update_at = db.Column(db.TIMESTAMP, server_default=db.func.now())
+
+
+class User(BaseModel):
+    __tablename__ = 'user'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64))
+    photo = db.Column(db.Text, nullable=True)
+    email = db.Column(db.Text, nullable=True)
+
+    @property
+    def serialize(self):
+        """Return object data in easily serializable format"""
+        return {
+            "user_id": self.id,
+            "user_name": self.name,
+            "user_photo": self.photo,
+            "email": self.email
+        }
+
+    def __repr__(self):
+        return f'<User {self.name!r}>'

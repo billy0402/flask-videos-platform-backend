@@ -5,3 +5,29 @@
 {% block content %}
 <h1>這是 影音平台API 首頁~~~</h1>
 {% endblock %}
+
+{#
+{% block scripts %}
+<script>
+    function postRequest(url, data) {
+        return fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            }),
+        })
+            .then(response => response.json())
+    }
+
+    postRequest('/api/user/', {
+        'user_id': 1234567890,
+        'user_name': 'test',
+        'user_photo': 'https://graph.facebook.com',
+        'email': 'example@example.com'
+    })
+        .then(data => console.log(data))
+        .catch(error => console.error(error))
+</script>
+{% endblock %}
+#}
