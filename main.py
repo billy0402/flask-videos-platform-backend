@@ -4,7 +4,9 @@ import click
 from flask_migrate import Migrate
 
 from app import create_app, db
+from app.models.action_models import ActionType, UserAction
 from app.models.user_models import User
+from app.models.video_models import VideoType, Video
 
 app = create_app(os.getenv('FLASK_CONFIG', 'default'))
 migrate = Migrate(app, db)
@@ -12,7 +14,7 @@ migrate = Migrate(app, db)
 
 @app.shell_context_processor
 def make_shell_context():
-    return dict(db=db, User=User)
+    return dict(db=db, User=User, ActionType=ActionType, UserAction=UserAction, VideoType=VideoType, Video=Video)
 
 
 @app.cli.command()
