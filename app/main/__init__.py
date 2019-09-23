@@ -8,7 +8,7 @@ from .user_views import UserView, UserList
 
 main = Blueprint('main', __name__)
 CORS(main, resources={r'/api/*': {'origins': re.compile(
-    r'^https?://(?:localhost:(?:3000|5000)|videos-platform-backend.herokuapp.com)$'
+    r'^https?://(?:localhost:(?:3000|5000)|140\.131\.115\.53|videos-platform-backend\.herokuapp\.com)$'
 )}})
 
 api = Api(main)
