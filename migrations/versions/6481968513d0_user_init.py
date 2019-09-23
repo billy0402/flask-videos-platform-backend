@@ -21,7 +21,7 @@ def upgrade():
     op.create_table('user',
     sa.Column('create_at', sa.TIMESTAMP(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
     sa.Column('update_at', sa.TIMESTAMP(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
-    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('id', sa.String(length=64), nullable=False),
     sa.Column('name', sa.String(length=64), nullable=True),
     sa.Column('photo', sa.Text(), nullable=True),
     sa.Column('email', sa.Text(), nullable=True),

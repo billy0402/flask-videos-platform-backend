@@ -4,7 +4,7 @@ from .. import db
 
 class User(BaseModel):
     __tablename__ = 'user'
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String(64), primary_key=True)
     name = db.Column(db.String(64))
     photo = db.Column(db.Text, nullable=True)
     email = db.Column(db.Text, nullable=True)

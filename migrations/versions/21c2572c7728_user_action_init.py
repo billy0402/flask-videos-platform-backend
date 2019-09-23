@@ -46,7 +46,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('create_at', sa.TIMESTAMP(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
     sa.Column('update_at', sa.TIMESTAMP(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
-    sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('user_id', sa.String(length=64), nullable=True),
     sa.Column('action_type_id', sa.Integer(), nullable=True),
     sa.Column('video_id', sa.String(length=64), nullable=True),
     sa.Column('video_time', sa.Integer(), nullable=True),
